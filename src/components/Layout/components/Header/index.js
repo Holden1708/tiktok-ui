@@ -9,8 +9,6 @@ import {
     faMagnifyingGlass,
     faEarthAsia,
     faQuestion,
-    faCloudUpload,
-    faMessage,
     faUser,
     faFilm,
     faGear,
@@ -20,13 +18,14 @@ import {
 import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
-
 import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, UploadIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
@@ -142,12 +141,12 @@ function Header() {
                         <>
                             <Tippy delay={(0, 200)} content="Upload videos" placement="bottom">
                                 <button className={cx('actions-btn')}>
-                                    <FontAwesomeIcon icon={faCloudUpload} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                             <Tippy delay={(0, 200)} content="Inbox" placement="bottom">
                                 <button className={cx('actions-btn')}>
-                                    <FontAwesomeIcon icon={faMessage} />
+                                    <InboxIcon />
                                 </button>
                             </Tippy>
                         </>
@@ -160,7 +159,7 @@ function Header() {
 
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://scontent.fsgn2-6.fna.fbcdn.net/v/t39.30808-1/313910039_642305834042321_9171177547841085970_n.jpg?stp=c0.18.60.60a_cp0_dst-jpg_p60x60&_nc_cat=111&ccb=1-7&_nc_sid=7206a8&_nc_ohc=x1HBvg54Wt8AX90G50W&_nc_ht=scontent.fsgn2-6.fna&oh=00_AfAwdRXlG8E_SvJ-C4167JE5mPori0lpUcixbkZqoXOrEA&oe=637CDF2E"
                                 alt="Avatar"
